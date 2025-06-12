@@ -19,6 +19,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
           $insert_query = "INSERT INTO users (username, email, password) VALUES ('$username', '$email', '$hashed_password')";
           if (mysqli_query($conn, $insert_query)) {
               echo "<p>Registration successful!</p>";
+              header("Location: index.php");
           } else {
               echo "<p>Error: " . mysqli_error($conn) . "</p>";
           }
